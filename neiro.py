@@ -14,37 +14,41 @@ class Neirons:
         self.weights = [
 
             # input-hide
-            [
+            np.array([
                 [r(), r(), r()],
                 [r(), r(), r()],
                 [r(), r(), r()],
                 [r(), r(), r()],
                 [r(), r(), r()],
-                [r(), r(), r()]],
+                [r(), r(), r()]]),
 
             # hide-hide
-            [
+            np.array([
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
-                [r(), r(), r(), r(), r(), r()]],
+                [r(), r(), r(), r(), r(), r()]]),
 
             # hide-output
-            [
+            np.array([
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
-                [r(), r(), r(), r(), r(), r()]]]
+                [r(), r(), r(), r(), r(), r()]])]
 
-        Neirons.neiron(self, [[2], [3], [4]])
+        Neirons.neiron(self, np.array([[2], [3], [4]]))
 
-    def neiron(self, x):
+    def neiron(self, neirons):
         for layer in range(self.hides_levels + 1):
-            x = np.matmul(self.weights[layer], x)
-        self.neiro = x
+            neirons = np.matmul(self.weights[layer], neirons)
+            for level in range(len(neirons)):
+                pass
+            if neirons <= 0:
+                neirons = 0.3 * (np.exp(neirons) - 1)
+        self.neiro = neirons
 
-    def learn(self):
+    def learn(self, data_values):
         pass
     # обучение
 
