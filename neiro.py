@@ -14,28 +14,30 @@ class Neirons:
         self.weights = [
 
             # input-hide
-            np.array(
+            [
                 [r(), r(), r()],
                 [r(), r(), r()],
                 [r(), r(), r()],
                 [r(), r(), r()],
                 [r(), r(), r()],
-                [r(), r(), r()]),
+                [r(), r(), r()]],
 
             # hide-hide
-            np.array(
+            [
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
-                [r(), r(), r(), r(), r(), r()]),
+                [r(), r(), r(), r(), r(), r()]],
 
             # hide-output
-            np.array(
+            [
                 [r(), r(), r(), r(), r(), r()],
                 [r(), r(), r(), r(), r(), r()],
-                [r(), r(), r(), r(), r(), r()])]
+                [r(), r(), r(), r(), r(), r()]]]
+
+        Neirons.neiron(self, [[2], [3], [4]])
 
     def neiron(self, x):
         for layer in range(self.hides_levels + 1):
@@ -46,3 +48,6 @@ class Neirons:
         pass
     # обучение
 
+
+x = Neirons()
+print(*x.neiro)
